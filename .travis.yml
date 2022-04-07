@@ -7,6 +7,9 @@ branches:
   only:
     - master
     - test
+cache:
+  directories:
+    - node_modules
 notifications:
   email:
     recipients:
@@ -20,4 +23,7 @@ addons:
     organization: $ORGANIZATION_TOKEN
     token: $SONAR_TOKEN
 script:
-- sonar-scanner -X 
+  - npm run test:unit
+  - sonar-scanner -X 
+after_script:
+  - cat./coverage/cov.info | coveralls
