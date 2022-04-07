@@ -17,7 +17,7 @@ notifications:
   
 addons:
   sonarcloud:
-    organization: $ORGANIZATION_KEY
+    organization: $ORGANIZATION_TOKEN
     token: $SONAR_TOKEN
 script:
 - sonar-scanner -X 
