@@ -1,0 +1,23 @@
+dist: xenial
+
+language: node_js
+node_js:
+  - 15
+branches:
+  only:
+    - master
+notifications:
+  email:
+    recipients:
+      - fatycabada@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always
+
+  
+addons:
+  sonarcloud:
+    organization: $ORGANIZATION_KEY
+    token: 
+      secure: $SONAR_TOKEN
+script:
+- sonar-scanner -X 
